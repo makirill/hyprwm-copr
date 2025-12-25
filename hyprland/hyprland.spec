@@ -13,54 +13,41 @@ BuildRequires:  meson
 BuildRequires:  cmake
 BuildRequires:  glaze-static
 BuildRequires:  mesa-libGL-devel
+
+BUildRequires:  pkgconfig(xcursor)
 BuildRequires:  pkgconfig(aquamarine)
-BuildRequires:  pkgconfig(cairo)
-BuildRequires:  pkgconfig(egl)
 BuildRequires:  pkgconfig(gbm)
-BuildRequires:  pkgconfig(glesv2)
+BuildRequires:  pkgconfig(hyprcursor)
+BuildRequires:  pkgconfig(hyprgraphics)
+BuildRequires:  pkgconfig(hyprlang)
+BuildRequires:  pkgconfig(hyprutils)
+BuildRequires:  pkgconfig(hyprwayland-scanner)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(libinput)
-BuildRequires:  pkgconfig(libseat)
-BuildRequires:  pkgconfig(libudev)
-BuildRequires:  pkgconfig(pango)
 BuildRequires:  pkgconfig(pangocairo)
 BuildRequires:  pkgconfig(pixman-1)
-BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  pkgconfig(re2)
+BuildRequires:  pkgconfig(tomlplusplus)
+BuildRequires:  pkgconfig(uuid)
 BuildRequires:  pkgconfig(wayland-protocols)
-BuildRequires:  pkgconfig(wayland-scanner)
 BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-icccm)
-BuildRequires:  pkgconfig(xcb-renderutil)
+BuildRequires:  pkgconfig(xcb-render)
 BuildRequires:  pkgconfig(xkbcommon)
-BuildRequires:  pkgconfig(xwayland)
+BuildRequires:  pkgconfig(xcb-composite)
+BuildRequires:  pkgconfig(xcb-res)
 BuildRequires:  pkgconfig(xcb-errors)
-BuildRequires:  pkgconfig(tomlplusplus)
-BuildRequires:  pkgconfig(aquamarine)
-BuildRequires:  pkgconfig(hyprlang)
-BuildRequires:  pkgconfig(hyprcursor)
-BuildRequires:  pkgconfig(hyprutils)
-BuildRequires:  pkgconfig(hyprgraphics)
-BuildRequires:  pkgconfig(uuid)
-BUildRequires:  pkgconfig(xcursor)
-BuildRequires:  pkgconfig(re2)
-BuildRequires:  pkgconfig(hyprwayland-scanner)
+BuildRequires:  pkgconfig(gio-2.0)
+BuildRequires:  pkgconfig(muparser)
 
-Requires:       xorg-x11-server-Xwayland%{?_isa}
-Requires:       aquamarine%{?_isa} >= 0.9.3
-Requires:       hyprcursor%{?_isa} >= 0.1.7
-Requires:       hyprgraphics%{?_isa} >= 0.1.6
-Requires:       hyprlang%{?_isa} >= 0.3.2
-Requires:       hyprutils%{?_isa} >= 0.8.2
-
-#Recommends:     (qt5-qtwayland if qt5-qtbase-gui)
-#Recommends:     (qt6-qtwayland if qt6-qtbase-gui)
 
 %description
 Hyprland is a dynamic tiling Wayland compositor that doesn't sacrifice
 on its looks. It supports multiple layouts, fancy effects, has a
 very flexible IPC model allowing for a lot of customization, a powerful
 plugin system and more.
+
 
 %package        devel
 Summary:        Development files for %{name}
@@ -72,9 +59,11 @@ Development files for %{name} v%{version}.
 %prep
 %autosetup -n hyprland-source -N
 
+
 %build
-%cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DNO_TESTS=TRUE -DBUILD_TESTING=FALSE
-%cmake_build --config Release
+%cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=FALSE
+%cmake_build
+
 
 %install
 %cmake_install
@@ -93,6 +82,7 @@ Development files for %{name} v%{version}.
 %{bash_completions_dir}/hypr*
 %{fish_completions_dir}/hypr*.fish
 %{zsh_completions_dir}/_hypr*
+
 
 %files devel
 %{_datadir}/pkgconfig/hyprland.pc
