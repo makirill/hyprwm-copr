@@ -1,5 +1,5 @@
 Name:           hyprpaper
-Version:        0.7.6
+Version:        0.8.1
 Release:        %autorelease
 Summary:        Hyprpaper is a wayland wallpaper utility with IPC controls.
 
