@@ -79,6 +79,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_userunitdir}/wayland-*.service
 %{_userunitdir}/wayland-*.target
 %{_userpresetdir}/80-fumon.preset
+%{_libexecdir}/uwsm/prepare-env.sh
+%{_libexecdir}/uwsm/signal-handler.sh
 
 %changelog
 %autochangelog
