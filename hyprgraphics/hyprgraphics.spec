@@ -47,7 +47,7 @@ Development files for %{name} v%{version}.
 %files
 %license LICENSE
 %doc README.md
-%{_libdir}/lib%{name}.so.3
+%{_libdir}/lib%{name}.so.4
 %{_libdir}/lib%{name}.so.%{version}
 
 %files devel
