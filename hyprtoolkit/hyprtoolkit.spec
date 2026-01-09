@@ -52,7 +52,7 @@ Development files for %{name} v%{version}.
 %license LICENSE
 %doc README.md
 %{_libdir}/lib%{name}.so.%{version}
-%{_libdir}/lib%{name}.so.4
+%{_libdir}/lib%{name}.so.5
 
 %files devel
 %{_includedir}/%{name}/

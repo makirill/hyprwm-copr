@@ -14,16 +14,18 @@ BuildRequires:  cmake
 BuildRequires:  glaze-static
 BuildRequires:  mesa-libGL-devel
 
-BUildRequires:  pkgconfig(xcursor)
 BuildRequires:  pkgconfig(aquamarine)
 BuildRequires:  pkgconfig(gbm)
+BuildRequires:  pkgconfig(gio-2.0)
 BuildRequires:  pkgconfig(hyprcursor)
 BuildRequires:  pkgconfig(hyprgraphics)
 BuildRequires:  pkgconfig(hyprlang)
 BuildRequires:  pkgconfig(hyprutils)
 BuildRequires:  pkgconfig(hyprwayland-scanner)
+BuildRequires:  pkgconfig(hyprwire)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(libinput)
+BuildRequires:  pkgconfig(muparser)
 BuildRequires:  pkgconfig(pangocairo)
 BuildRequires:  pkgconfig(pixman-1)
 BuildRequires:  pkgconfig(re2)
@@ -32,14 +34,13 @@ BuildRequires:  pkgconfig(uuid)
 BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(xcb)
+BuildRequires:  pkgconfig(xcb-composite)
+BuildRequires:  pkgconfig(xcb-errors)
 BuildRequires:  pkgconfig(xcb-icccm)
 BuildRequires:  pkgconfig(xcb-render)
-BuildRequires:  pkgconfig(xkbcommon)
-BuildRequires:  pkgconfig(xcb-composite)
 BuildRequires:  pkgconfig(xcb-res)
-BuildRequires:  pkgconfig(xcb-errors)
-BuildRequires:  pkgconfig(gio-2.0)
-BuildRequires:  pkgconfig(muparser)
+BuildRequires:  pkgconfig(xcursor)
+BuildRequires:  pkgconfig(xkbcommon)
 
 
 %description
@@ -73,6 +74,7 @@ Development files for %{name} v%{version}.
 %{_bindir}/[Hh]yprland
 %{_bindir}/hyprctl
 %{_bindir}/hyprpm
+%{_bindir}/start-hyprland
 %{_datadir}/hypr/
 %{_datadir}/wayland-sessions/hyprland.desktop
 %{_datadir}/wayland-sessions/hyprland-uwsm.desktop
