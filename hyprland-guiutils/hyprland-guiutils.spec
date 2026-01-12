@@ -1,6 +1,6 @@
 Name:           hyprland-guiutils
 Version:        0.2.1
-Release:        %autorelease
+Release:        1%{?dist}
 Summary:        Hyprland GUI utilities
 
 License:        BSD-3-Clause

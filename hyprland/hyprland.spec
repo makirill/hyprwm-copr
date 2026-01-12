@@ -1,6 +1,6 @@
 Name:           hyprland
 Version:        0.53.1
-Release:        %autorelease
+Release:        5%{?dist}
 Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 
 License:        BSD-3-Clause
@@ -11,10 +11,10 @@ BuildRequires:  gcc-c++
 BuildRequires:  git
 BuildRequires:  meson
 BuildRequires:  cmake
-BuildRequires:  glaze-static
+BuildRequires:  glaze-devel >= 6.0.0
 BuildRequires:  mesa-libGL-devel
 
-BuildRequires:  pkgconfig(aquamarine)
+BuildRequires:  pkgconfig(aquamarine) >= 0.9.3
 BuildRequires:  pkgconfig(gbm)
 BuildRequires:  pkgconfig(gio-2.0)
 BuildRequires:  pkgconfig(hyprcursor)
@@ -42,6 +42,9 @@ BuildRequires:  pkgconfig(xcb-res)
 BuildRequires:  pkgconfig(xcursor)
 BuildRequires:  pkgconfig(xkbcommon)
 
+Requires:       meson
+Requires:       cmake
+Requires:       gcc-c++
 
 %description
 Hyprland is a dynamic tiling Wayland compositor that doesn't sacrifice
