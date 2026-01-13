@@ -1,6 +1,6 @@
 Name:           hyprland
 Version:        0.53.1
-Release:        5%{?dist}
+Release:        11%{?dist}
 Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 
 License:        BSD-3-Clause
@@ -41,10 +41,7 @@ BuildRequires:  pkgconfig(xcb-render)
 BuildRequires:  pkgconfig(xcb-res)
 BuildRequires:  pkgconfig(xcursor)
 BuildRequires:  pkgconfig(xkbcommon)
-
-Requires:       meson
-Requires:       cmake
-Requires:       gcc-c++
+BuildRequires:  udis86-devel
 
 %description
 Hyprland is a dynamic tiling Wayland compositor that doesn't sacrifice
@@ -56,8 +53,23 @@ plugin system and more.
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       cmake
+Requires:       gcc-c++
+Requires:       pkgconfig(gbm)
+Requires:       meson
+Requires:       pkgconfig(hyprwayland-scanner)
+Requires:       pkgconfig(hyprwire)
+Requires:       pkgconfig(muparser)
+Requires:       pkgconfig(pangocairo)
+Requires:       pkgconfig(re2)
+Requires:       pkgconfig(tomlplusplus)
+Requires:       pkgconfig(uuid)
+Requires:       pkgconfig(wayland-protocols) >= 1.45
+Requires:       pkgconfig(xcursor)
+Requires:       udis86-devel
 %description    devel
-Development files for %{name} v%{version}.
+Development files for %{name} v%{version}. Hyprland plugins are build for specific setup,
+so this package is an mandatory requirement for plugins.
 
 
 %prep
